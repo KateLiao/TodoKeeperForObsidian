@@ -62,14 +62,16 @@ export class TodoKeeperSettingTab extends PluginSettingTab {
           .setPlaceholder("todo,fixme,review")
           .setValue(this.plugin.settings.markerKeywords.join(","))
           .onChange(async (value) => {
-            this.plugin.settings.markerKeywords = value
-              .split(",")
-              .map((k) => k.trim().toLowerCase())
-              .filter((k) => k.length > 0);
             await this.plugin.saveSettings();
             this.plugin.refreshAll();
-            this.renderColorSection();
           });
+        text.inputEl.addEventListener("input", () => {
+          this.plugin.settings.markerKeywords = text.inputEl.value
+            .split(",")
+            .map((k) => k.trim().toLowerCase())
+            .filter((k) => k.length > 0);
+          this.renderColorSection();
+        });
       });
 
     new Setting(containerEl)
@@ -109,8 +111,12 @@ export class TodoKeeperSettingTab extends PluginSettingTab {
   }
 
   private renderColorSection(): void {
-    if (!this.colorSectionEl) return;
-    this.colorSectionEl.empty();
+    // Remove old section — recreating the container div ensures
+    // Setting instances render correctly when called outside display().
+    if (this.colorSectionEl && this.colorSectionEl.parentElement) {
+      this.colorSectionEl.remove();
+    }
+    this.colorSectionEl = this.containerEl.createDiv("tk-settings-color-section");
 
     this.colorSectionEl.createEl("h3", { text: "Marker Colors" });
 
