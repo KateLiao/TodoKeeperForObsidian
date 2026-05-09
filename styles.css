@@ -1,0 +1,192 @@
+/* ===========================
+   Editor Highlight (CodeMirror)
+   =========================== */
+
+.tk-editor-marker {
+  background-color: color-mix(in srgb, var(--tk-color, #e5c07b) 30%, transparent);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ===========================
+   Preview Mode Markers
+   =========================== */
+
+.tk-marker {
+  display: inline;
+  line-height: 1.6;
+}
+
+.tk-marker-badge {
+  user-select: none;
+}
+
+/* ===========================
+   Side Panel
+   =========================== */
+
+.tk-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tk-panel-header {
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  flex-shrink: 0;
+}
+
+.tk-panel-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tk-panel-title {
+  font-weight: 700;
+  font-size: 1em;
+  flex: 1;
+}
+
+.tk-panel-count {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  background: var(--background-modifier-hover);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.tk-refresh-btn {
+  font-size: 0.8em;
+  padding: 2px 10px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tk-refresh-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Filter Chips */
+.tk-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tk-filter-chip {
+  font-size: 0.75em;
+  padding: 2px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tk-filter-chip:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.tk-filter-chip.tk-filter-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+/* Marker List */
+.tk-panel-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.tk-empty-state {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+/* File Group */
+.tk-file-group {
+  margin-bottom: 4px;
+}
+
+.tk-file-header {
+  padding: 6px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.tk-file-header:hover {
+  background: var(--background-modifier-hover);
+}
+
+.tk-file-name {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: var(--text-normal);
+}
+
+.tk-file-path {
+  font-size: 0.7em;
+  color: var(--text-faint);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Marker Item */
+.tk-marker-item {
+  padding: 4px 16px 4px 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  border-left: 3px solid transparent;
+  font-size: 0.8em;
+  transition: background 0.1s;
+}
+
+.tk-marker-item:hover {
+  background: var(--background-modifier-hover);
+  border-left-color: var(--tk-marker-color, #e06c75);
+}
+
+.tk-marker-item .tk-marker-badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 600;
+  padding: 0px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.tk-marker-item .tk-marker-text {
+  color: var(--text-normal);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tk-marker-item .tk-marker-line-num {
+  color: var(--text-faint);
+  font-size: 0.85em;
+  flex-shrink: 0;
+  font-family: var(--font-monospace);
+}
