@@ -5,5 +5,7 @@
   "minAppVersion": "1.5.0",
   "description": "Track incomplete sections (breakpoints) in your notes with @todo markers. View all markers in a side panel and jump to them.",
   "author": "Skye L",
-  "isDesktopOnly": false
+  "authorUrl": "https://github.com/KateLiao",
+  "isDesktopOnly": false,
+  "repo": "KateLiao/TodoKeeperForObsidian"
 }
